@@ -11,6 +11,7 @@ This demo app contains tab-based UI where one tab is for Gif feed and another is
 - Contain a favourite button that allows favourite and unfavourite.
 - The favourited items will be stored locally on the device.
 - The unfavourite functionality will remove gif from local storage.
+- Added pagination _(infinite scrolling)_ to the gif lists _(trending & search)_.
 
 
 ## Technical Specification
