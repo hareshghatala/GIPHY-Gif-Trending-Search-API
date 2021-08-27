@@ -15,3 +15,12 @@ public struct Trending: Codable {
     
 }
 
+extension Trending: Equatable {
+    
+    public static func ==(lhs: Trending, rhs: Trending) -> Bool {
+        return lhs.data == rhs.data &&
+            lhs.pagination == rhs.pagination
+    }
+    
+}
+

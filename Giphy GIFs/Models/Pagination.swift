@@ -21,3 +21,13 @@ public struct Pagination: Codable {
     }
     
 }
+
+extension Pagination: Equatable {
+    
+    public static func ==(lhs: Pagination, rhs: Pagination) -> Bool {
+        return lhs.totalCount == rhs.totalCount &&
+            lhs.count == rhs.count &&
+            lhs.offset == rhs.offset
+    }
+    
+}

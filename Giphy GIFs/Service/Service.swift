@@ -19,7 +19,7 @@ public enum ServiceError: Error {
 class Service {
     
     public static let shared = Service()
-    private init() {}
+    init() {}
     
     private let urlSession = URLSession.shared
     

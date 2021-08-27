@@ -38,3 +38,14 @@ public struct GifData: Codable {
         return "\(gifId).gif"
     }
 }
+
+extension GifData: Equatable {
+    
+    public static func ==(lhs: GifData, rhs: GifData) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.title == rhs.title &&
+            lhs.images == rhs.images &&
+            lhs.isFavourite == rhs.isFavourite
+    }
+    
+}

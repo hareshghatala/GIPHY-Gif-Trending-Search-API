@@ -16,3 +16,14 @@ public struct ImageDetails: Codable {
     public let url: String?
     
 }
+
+extension ImageDetails: Equatable {
+    
+    public static func ==(lhs: ImageDetails, rhs: ImageDetails) -> Bool {
+        return lhs.height == rhs.height &&
+            lhs.width == rhs.width &&
+            lhs.size == rhs.size &&
+            lhs.url == rhs.url
+    }
+    
+}

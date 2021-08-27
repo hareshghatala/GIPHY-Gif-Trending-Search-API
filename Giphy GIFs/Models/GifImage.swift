@@ -53,3 +53,14 @@ public struct GifImage: Codable {
     }
     
 }
+
+extension GifImage: Equatable {
+    
+    public static func ==(lhs: GifImage, rhs: GifImage) -> Bool {
+        return lhs.original == rhs.original &&
+            lhs.downsizedMedium == rhs.downsizedMedium &&
+            lhs.fixedHeightDownsampled == rhs.fixedHeightDownsampled &&
+            lhs.fixedWidthDownsampled == rhs.fixedWidthDownsampled
+    }
+    
+}
