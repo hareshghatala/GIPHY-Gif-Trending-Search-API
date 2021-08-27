@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cng-Ne-hTm">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites-->
+        <scene sceneID="Cnq-GZ-ucN">
+            <objects>
+                <viewController id="sPv-cS-Evy" customClass="FavouritesViewController" customModule="Giphy_GIFs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KSy-jg-Dfb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-bY-fVc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" id="GjK-xr-ahL">
+                                    <size key="itemSize" width="184" height="184"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="15" maxX="15" maxY="15"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouriteCollectionViewCell" id="pwl-YN-RR5" customClass="FavouriteCollectionViewCell" customModule="Giphy_GIFs" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="15" width="184" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="21M-0M-OEE">
+                                            <rect key="frame" x="0.0" y="0.0" width="184" height="184"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pMu-1l-Ayi" customClass="JellyGifImageView" customModule="JellyGif">
+                                                    <rect key="frame" x="0.0" y="1" width="184" height="181.5"/>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-Xj-a7a" userLabel="Favorite">
+                                                    <rect key="frame" x="134" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="XNO-o8-ftj"/>
+                                                        <constraint firstAttribute="height" constant="50" id="egc-Ph-cZ6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="tintColor" systemColor="systemPinkColor"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="unfavouriteTapAction:" destination="pwl-YN-RR5" eventType="touchUpInside" id="ejw-Zl-JoI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="djZ-Xj-a7a" secondAttribute="trailing" id="KIe-rF-CkZ"/>
+                                                <constraint firstItem="pMu-1l-Ayi" firstAttribute="leading" secondItem="21M-0M-OEE" secondAttribute="leading" id="KMb-Qo-70O"/>
+                                                <constraint firstItem="pMu-1l-Ayi" firstAttribute="top" secondItem="21M-0M-OEE" secondAttribute="top" id="ape-IP-6HY"/>
+                                                <constraint firstAttribute="trailing" secondItem="pMu-1l-Ayi" secondAttribute="trailing" id="cLY-Gm-qhK"/>
+                                                <constraint firstAttribute="bottom" secondItem="pMu-1l-Ayi" secondAttribute="bottom" id="fTd-4h-d5H"/>
+                                                <constraint firstItem="djZ-Xj-a7a" firstAttribute="top" secondItem="21M-0M-OEE" secondAttribute="top" id="nZI-JF-wST"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="184" height="184"/>
+                                        <connections>
+                                            <outlet property="gifImageView" destination="pMu-1l-Ayi" id="x5D-bF-WgR"/>
+                                            <outlet property="unfavouriteButton" destination="djZ-Xj-a7a" id="QkN-Fe-q7J"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="sPv-cS-Evy" id="cAm-YW-YHN"/>
+                                    <outlet property="delegate" destination="sPv-cS-Evy" id="Jco-ma-iHc"/>
+                                </connections>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nps-GP-sBv">
+                                <rect key="frame" x="30" y="394.5" width="354" height="107.5"/>
+                                <string key="text">Nothing found.
+Please mark some gif as favourite.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I7d-IJ-fko"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="I7d-IJ-fko" firstAttribute="trailing" secondItem="nps-GP-sBv" secondAttribute="trailing" constant="30" id="PK9-2z-CcK"/>
+                            <constraint firstItem="jDF-bY-fVc" firstAttribute="leading" secondItem="I7d-IJ-fko" secondAttribute="leading" id="Seh-Fk-xUK"/>
+                            <constraint firstItem="jDF-bY-fVc" firstAttribute="top" secondItem="I7d-IJ-fko" secondAttribute="top" id="dUH-CO-0qG"/>
+                            <constraint firstItem="nps-GP-sBv" firstAttribute="centerY" secondItem="KSy-jg-Dfb" secondAttribute="centerY" id="ecB-Ws-BcT"/>
+                            <constraint firstItem="I7d-IJ-fko" firstAttribute="trailing" secondItem="jDF-bY-fVc" secondAttribute="trailing" id="hLn-M0-C96"/>
+                            <constraint firstItem="I7d-IJ-fko" firstAttribute="bottom" secondItem="jDF-bY-fVc" secondAttribute="bottom" id="mzx-DB-KIr"/>
+                            <constraint firstItem="nps-GP-sBv" firstAttribute="centerX" secondItem="KSy-jg-Dfb" secondAttribute="centerX" id="uOe-cH-qIH"/>
+                            <constraint firstItem="nps-GP-sBv" firstAttribute="leading" secondItem="I7d-IJ-fko" secondAttribute="leading" constant="30" id="v9v-c0-tHw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="PKN-d4-jmX"/>
+                    <connections>
+                        <outlet property="mainCollectionView" destination="jDF-bY-fVc" id="tns-XU-H0L"/>
+                        <outlet property="nothingFoundLabel" destination="nps-GP-sBv" id="esH-ta-SM3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGv-3U-sW2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2118.840579710145" y="488.83928571428567"/>
+        </scene>
+        <!--Giphy GIFs-->
+        <scene sceneID="ckN-F9-4rj">
+            <objects>
+                <viewController id="Vp9-Iz-Scj" customClass="GIFFeedHomeViewController" customModule="Giphy_GIFs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LKZ-l8-a1h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5T-Iw-fDx">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GIFFeedTableViewCell" rowHeight="225" id="KFA-wk-GnD" customClass="GIFFeedTableViewCell" customModule="Giphy_GIFs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="225"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KFA-wk-GnD" id="2v1-hl-1qW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WG7-fh-WmL" customClass="JellyGifImageView" customModule="JellyGif">
+                                                    <rect key="frame" x="8" y="6" width="326" height="215.5"/>
+                                                    <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gx-kr-0yZ" userLabel="Favorite">
+                                                    <rect key="frame" x="334" y="0.0" width="80" height="225"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="9P7-Vv-h50"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="tintColor" systemColor="systemPinkColor"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="favouriteTapAction:" destination="KFA-wk-GnD" eventType="touchUpInside" id="ksw-N4-Fj4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="WG7-fh-WmL" secondAttribute="bottom" constant="2" id="0MF-EI-dzU"/>
+                                                <constraint firstItem="WG7-fh-WmL" firstAttribute="top" secondItem="2v1-hl-1qW" secondAttribute="top" constant="5" id="8PO-kI-GVl"/>
+                                                <constraint firstItem="WG7-fh-WmL" firstAttribute="leading" secondItem="2v1-hl-1qW" secondAttribute="leading" constant="8" id="BKI-m3-lna"/>
+                                                <constraint firstItem="5Gx-kr-0yZ" firstAttribute="leading" secondItem="WG7-fh-WmL" secondAttribute="trailing" id="Cbj-F4-9dA"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Gx-kr-0yZ" secondAttribute="bottom" id="Dpg-Zd-F8W"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Gx-kr-0yZ" secondAttribute="trailing" id="HVM-Zv-RXK"/>
+                                                <constraint firstItem="5Gx-kr-0yZ" firstAttribute="top" secondItem="2v1-hl-1qW" secondAttribute="top" id="eTc-ec-QIc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favouriteButton" destination="5Gx-kr-0yZ" id="7YQ-Jx-XRc"/>
+                                            <outlet property="gifImageView" destination="WG7-fh-WmL" id="Yn5-UU-lqR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vp9-Iz-Scj" id="lF1-EL-JKt"/>
+                                    <outlet property="delegate" destination="Vp9-Iz-Scj" id="psX-PT-qBE"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search GIFs" translatesAutoresizingMaskIntoConstraints="NO" id="cJo-qh-Ovr">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Vp9-Iz-Scj" id="ZFb-m9-IkK"/>
+                                </connections>
+                            </searchBar>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-SW-IhR">
+                                <rect key="frame" x="30" y="394.5" width="354" height="107.5"/>
+                                <string key="text">No results found.
+Please try again with a different keyword.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="T5u-xP-xjl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Auz-SW-IhR" firstAttribute="centerX" secondItem="LKZ-l8-a1h" secondAttribute="centerX" id="DpG-vx-E1c"/>
+                            <constraint firstItem="T5u-xP-xjl" firstAttribute="trailing" secondItem="G5T-Iw-fDx" secondAttribute="trailing" id="GqU-Yc-xG3"/>
+                            <constraint firstItem="Auz-SW-IhR" firstAttribute="centerY" secondItem="LKZ-l8-a1h" secondAttribute="centerY" id="Gv2-13-IUH"/>
+                            <constraint firstItem="T5u-xP-xjl" firstAttribute="bottom" secondItem="G5T-Iw-fDx" secondAttribute="bottom" id="JLh-OI-2Lf"/>
+                            <constraint firstItem="T5u-xP-xjl" firstAttribute="trailing" secondItem="Auz-SW-IhR" secondAttribute="trailing" constant="30" id="T5J-7R-e91"/>
+                            <constraint firstItem="cJo-qh-Ovr" firstAttribute="trailing" secondItem="T5u-xP-xjl" secondAttribute="trailing" id="Y3U-dc-CSD"/>
+                            <constraint firstItem="G5T-Iw-fDx" firstAttribute="leading" secondItem="T5u-xP-xjl" secondAttribute="leading" id="dVo-db-zau"/>
+                            <constraint firstItem="cJo-qh-Ovr" firstAttribute="leading" secondItem="T5u-xP-xjl" secondAttribute="leading" id="h97-qn-UTQ"/>
+                            <constraint firstItem="G5T-Iw-fDx" firstAttribute="top" secondItem="cJo-qh-Ovr" secondAttribute="bottom" id="hVK-Ah-uVW"/>
+                            <constraint firstItem="cJo-qh-Ovr" firstAttribute="top" secondItem="T5u-xP-xjl" secondAttribute="top" id="iFD-Gl-7aW"/>
+                            <constraint firstItem="Auz-SW-IhR" firstAttribute="leading" secondItem="T5u-xP-xjl" secondAttribute="leading" constant="30" id="lLm-1K-ywR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Giphy GIFs" id="mfN-EN-V1s"/>
+                    <connections>
+                        <outlet property="footerLoaderView" destination="HPo-jh-El5" id="5mZ-OU-6e3"/>
+                        <outlet property="gifSearchBar" destination="cJo-qh-Ovr" id="Jb9-nt-Ljh"/>
+                        <outlet property="mainTableView" destination="G5T-Iw-fDx" id="Ae6-qq-Ecx"/>
+                        <outlet property="noResultLabel" destination="Auz-SW-IhR" id="zPb-Xo-qfk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5l-Af-hoe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="HPo-jh-El5">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="TWj-NP-vb4">
+                            <rect key="frame" x="181.5" y="6.5" width="37" height="37"/>
+                            <color key="color" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="fJU-uU-3Fg"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="TWj-NP-vb4" firstAttribute="centerY" secondItem="HPo-jh-El5" secondAttribute="centerY" id="JBx-tW-iKN"/>
+                        <constraint firstItem="TWj-NP-vb4" firstAttribute="centerX" secondItem="HPo-jh-El5" secondAttribute="centerX" id="cyb-A9-I3s"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="2118.840579710145" y="-206.25"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="egJ-FJ-XR5">
+            <objects>
+                <tabBarController id="cng-Ne-hTm" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E2c-7V-W3H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qah-rg-BrE" kind="relationship" relationship="viewControllers" id="3Sg-XN-QoX"/>
+                        <segue destination="Sj9-S1-T7G" kind="relationship" relationship="viewControllers" id="Tgi-DO-f8D"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVx-V3-wA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="294" y="127"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="WrX-jO-vnH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qah-rg-BrE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="FVA-ck-77t">
+                        <imageReference key="image" image="house.circle.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6tP-gh-br6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Vp9-Iz-Scj" kind="relationship" relationship="rootViewController" id="udA-Xr-shd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fFA-7H-4dk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="-206"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="iw1-AM-ejN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sj9-S1-T7G" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" id="XHk-o8-bWl">
+                        <imageReference key="image" image="heart.circle.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8xf-A2-O4W">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sPv-cS-Evy" kind="relationship" relationship="rootViewController" id="RS6-bn-0bp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HD4-eN-omC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="489"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="house.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
