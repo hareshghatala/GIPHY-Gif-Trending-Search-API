@@ -21,6 +21,7 @@ This demo app contains tab-based UI where one tab is for Gif feed and another is
 >  - [x] Swift 5
 >  - [x] iPhone only app
 >  - [x] Swift & Storyboard
+>  - [x] Unit Test cases
 
 ### Architecture
 MVVM *(Model View ViewModel)*
