@@ -13,8 +13,4 @@ target 'Giphy GIFs' do
     # Pods for testing
   end
 
-  target 'Giphy GIFsUITests' do
-    # Pods for testing
-  end
-
 end
