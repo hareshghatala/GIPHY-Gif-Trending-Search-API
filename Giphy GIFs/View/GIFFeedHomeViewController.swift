@@ -26,6 +26,18 @@ class GIFFeedHomeViewController: UIViewController {
         configureView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if viewModel.gifList.isEmpty {
+            if viewModel.isSearching, let text = gifSearchBar.text, !text.isEmpty {
+                viewModel.searchGifs(searchText: text, offset: viewModel.searchOffset)
+            } else {
+                viewModel.fetchTrendingGifs(offset: viewModel.trendingOffset)
+            }
+        }
+    }
+    
     private func configureView() {
         isFooterLoaderViewDisply(show: false)
         

@@ -15,11 +15,13 @@ class GIFFeedHomeViewModel {
     
     private(set) var gifList: [GifData]
     
+    var serviceSession = Service.shared
     var bindGifFeedToController: ((Bool) -> ()) = { wipeData in }
     var serviceFailur: (() -> ()) = { }
     var trendingOffset = 0
     var searchOffset = 0
     var isSearching = false
+    
     
     init() {
         gifList = []
@@ -35,7 +37,7 @@ class GIFFeedHomeViewModel {
             return
         }
         ProgressHUD.show()
-        Service.shared.fetchTrendingGif(offset: offset) { (result: Result<Trending, ServiceError>) in
+        serviceSession.fetchTrendingGif(offset: offset) { (result: Result<Trending, ServiceError>) in
             switch result {
                 case .success(let trendingList):
                     self.handleSuccess(response: trendingList, wipeData: (offset == 0))
@@ -55,7 +57,7 @@ class GIFFeedHomeViewModel {
             return
         }
         ProgressHUD.show()
-        Service.shared.SearchGif(searchText: searchText, offset: offset) { (result: Result<Trending, ServiceError>) in
+        serviceSession.SearchGif(searchText: searchText, offset: offset) { (result: Result<Trending, ServiceError>) in
             switch result {
                 case .success(let searchList):
                     self.handleSuccess(response: searchList, wipeData: (offset == 0))
